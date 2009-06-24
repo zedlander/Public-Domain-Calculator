@@ -52,6 +52,7 @@
 		<script type="text/javascript">
 		//<![CDATA[
 			function calculate_result(data) {
+				const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 				if(data.code != "/api/status/ok") {
 					document.getElementById('output').innerHTML = '<b>An error occurred.</b>';
 					return;
@@ -65,7 +66,7 @@
 				dt = new Date(dt[1], dt[2]-1, dt[3]);
 				dt.setSeconds(1577846300); //add 50 years
 				var ent = (dt > Date.now()) ? 'enters' : 'entered';
-				document.getElementById('output').innerHTML = "Work " + ent + " the Canadian Public domain on " + dt.getFullYear() + '-' + (dt.getMonth()+1) + '-' + dt.getDay();
+				document.getElementById('output').innerHTML = "Work " + ent + " the Canadian Public domain on " + MONTHS[dt.getMonth()] + ' ' + dt.getDay() + ', ' + dt.getFullYear();
 			}
 			function calculate_item() {
 				var authors = this.getAttribute('data-author').split(/ /);
